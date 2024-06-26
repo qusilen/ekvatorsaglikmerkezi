@@ -13,6 +13,8 @@ import Contact from './pages/Contact';
 import './App.css';
 import logo from './logo.png';
 import instagramLogo from './instagram-logo.png';
+import 'leaflet/dist/leaflet.css';
+
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
