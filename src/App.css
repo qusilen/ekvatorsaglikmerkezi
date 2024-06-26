@@ -1,38 +1,195 @@
-.App {
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f8ff; /* Açık mavi arka plan rengi */
+}
+
+nav {
+  background: #0056b3; /* Mavi arka plan rengi */
+  color: white;
+  padding: 10px;
+  position: relative;
+  z-index: 1; /* Navbar'ı sayfa içeriğinin üzerine getir */
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-container .logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-container .logo img {
+  height: 40px; /* Logonun boyutunu ayarlayın */
+  margin-right: 10px; /* Logodan metne boşluk ekleyin */
+}
+
+.logo-text {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Yazıları ortala */
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: #003d80; /* Daha koyu mavi arka plan rengi */
+  border-radius: 4px;
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-icon .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.container {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 0; /* Sayfa içeriğini hamburger menünün altına yerleştir */
+}
+
+.home {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.banner {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.banner-img {
+  width: 33.33%; /* Üç resmi eşit genişlikte olacak şekilde ayarlayın */
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Navbar yüksekliğine göre ayarlayın */
+    width: 100%;
+    background-color: #0056b3;
+    justify-content: center; /* Yazıları ortala */
+    z-index: 2; /* Mobil menüyü diğer öğelerin üzerine getir */
+  }
+
+  .mobile-nav-links li {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .mobile-nav-links li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+
+  .mobile-nav-links li a:hover {
+    background-color: #003d80;
+  }
+
+  .banner {
+    flex-direction: column;
+  }
+
+  .banner-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+footer {
+  background-color: #0056b3;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-content .footer-left,
+.footer-content .footer-right {
+  flex: 1;
+}
+
+.footer-content .footer-right {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.footer-content p {
+  margin: center;
+}
+
+.footer-content a {
   color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-content a:hover {
+  text-decoration: underline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.instagram-logo {
+  width: 30px; /* Instagram logosu boyutunu ayarlayın */
+  margin-right: 5px; /* Logo ile metin arasına boşluk ekleyin */
 }

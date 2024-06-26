@@ -1,24 +1,116 @@
-import logo from './logo.svg';
+import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
+import Home from './pages/Home';
+import About from './pages/About';
+import Board from './pages/Board';
+import Mission from './pages/Mission';
+import Doctors from './pages/Doctors';
+import Departments from './pages/Departments';
+import Blog from './pages/Blog';
+import Gallery from './pages/Gallery';
+import Contact from './pages/Contact';
 import './App.css';
+import logo from './logo.png';
+import instagramLogo from './instagram-logo.png';
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  const NavLinks = () => (
+    <>
+      <li><Link to="/" onClick={closeMenu}>Anasayfa</Link></li>
+      <li><Link to="/about" onClick={closeMenu}>Hakkımızda</Link></li>
+      <li><Link to="/board" onClick={closeMenu}>Yönetim Kurulu</Link></li>
+      <li><Link to="/mission" onClick={closeMenu}>Misyon & Vizyon</Link></li>
+      <li><Link to="/doctors" onClick={closeMenu}>Hekimlerimiz</Link></li>
+      <li><Link to="/departments" onClick={closeMenu}>Tıbbi Birimler</Link></li>
+      <li><Link to="/blog" onClick={closeMenu}>Blog</Link></li>
+      <li><Link to="/gallery" onClick={closeMenu}>Galeri</Link></li>
+      <li><Link to="/contact" onClick={closeMenu}>İletişim</Link></li>
+    </>
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <div className="nav-container">
+            <div className="logo">
+              <Link to="/">
+                <img src={logo} alt="Logo" />
+              </Link>
+              <span className="logo-text">Ekvator Sağlık Merkezi</span>
+            </div>
+            <div className="menu-icon" onClick={toggleMenu}>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+            </div>
+            {!isMobile && (
+              <ul className="nav-links">
+                <NavLinks />
+              </ul>
+            )}
+          </div>
+          {isMobile && menuOpen && (
+            <ul className="mobile-nav-links" ref={menuRef}>
+              <NavLinks />
+            </ul>
+          )}
+        </nav>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/board" element={<Board />} />
+            <Route path="/mission" element={<Mission />} />
+            <Route path="/doctors" element={<Doctors />} />
+            <Route path="/departments" element={<Departments />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+        <footer>
+          <div className="footer-content">
+            <div className="footer-left">
+              <p>&copy; 2024 Ekvator Sağlık Merkezi</p>
+            </div>
+            <div className="footer-right">
+              <p>Telefon: +90 123 456 7890</p>
+              <a href="https://www.instagram.com/ekvatorsaglikmerkezi" target="_blank" rel="noopener noreferrer">
+                <img src={instagramLogo} alt="Instagram Logo" className="instagram-logo" />
+                <span>@ekvatorsaglikmerkezi</span>
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </Router>
   );
 }
 
