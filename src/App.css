@@ -230,7 +230,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1;
 }
 
 .modal {
@@ -238,11 +238,15 @@ footer {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  max-width: 80%;
-  max-height: 80%;
-  overflow: hidden;
-  position: relative;
+  max-width: 30%; /* İstenilen maksimum genişlik ayarı */
+  max-height: auto; /* İstenilen maksimum yükseklik ayarı */
+  overflow: auto; /* İçerik taştığında kaydırma çubuğu göster */
+  position: absolute; /* Modalın ekranın ortasında durması için mutlak pozisyon */
+  top: 50%; /* Ekranın yarısına gel */
+  left: 50%; /* Ekranın yarısına gel */
+  transform: translate(-50%, -50%); /* Merkezden hizala */
 }
+
 
 .modal-close-btn {
   position: absolute;
