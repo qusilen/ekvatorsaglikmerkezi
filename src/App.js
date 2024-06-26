@@ -100,10 +100,13 @@ function App() {
         <footer>
           <div className="footer-content">
             <div className="footer-left">
-              <p>&copy; 2024 Ekvator Sağlık Merkezi</p>
+              <p><br/><br/>Tüm Hakları Saklıdır | All rights reserved. &copy; 2024 Ekvator Sağlık Merkezi</p>
             </div>
-            <div className="footer-right">
-              <p>Telefon: +90 123 456 7890</p>
+            <div className="footer-right"> 
+              <p>
+                +90 532 400 33 69
+              </p>
+              <a href="mailto:ekvatorsaglikmerkezi@gmail.com">ekvatorsaglikmerkezi@gmail.com<br/><br/></a>
               <a href="https://www.instagram.com/ekvatorsaglikmerkezi" target="_blank" rel="noopener noreferrer">
                 <img src={instagramLogo} alt="Instagram Logo" className="instagram-logo" />
                 <span>@ekvatorsaglikmerkezi</span>
