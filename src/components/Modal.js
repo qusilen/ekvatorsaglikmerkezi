@@ -8,7 +8,9 @@ const Modal = ({ photo, closeModal }) => {
     <div className="modal-overlay" onClick={closeModal}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close-btn" onClick={closeModal}>X</button>
-        <img src={photo.src} alt={photo.alt} className="modal-img" />
+        <div className="modal-content">
+          <img src={process.env.PUBLIC_URL + photo.src} alt={photo.alt} className="modal-img" />
+        </div>
       </div>
     </div>
   );

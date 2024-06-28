@@ -60,7 +60,7 @@ const styles = {
   },
   gridContainer: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', // Adjusted for responsiveness
     gap: '20px',
   },
   departmentContainer: {
