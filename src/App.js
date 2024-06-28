@@ -8,13 +8,13 @@ import Mission from './pages/Mission';
 import Doctors from './pages/Doctors';
 import Departments from './pages/Departments';
 import Blog from './pages/Blog';
+import BlogContents from './pages/BlogContents'; // Yeni eklenen bileşen
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import './App.css';
 import logo from './logo.png';
 import instagramLogo from './instagram-logo.png';
 import 'leaflet/dist/leaflet.css';
-
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -93,6 +93,7 @@ function App() {
             <Route path="/doctors" element={<Doctors />} />
             <Route path="/departments" element={<Departments />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogContents />} /> {/* Blog içeriği için yönlendirme */}
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
@@ -100,13 +101,11 @@ function App() {
         <footer>
           <div className="footer-content">
             <div className="footer-left">
-              <p><br/><br/>Tüm Hakları Saklıdır | All rights reserved. &copy; 2024 Ekvator Sağlık Merkezi</p>
+              <p>Tüm Hakları Saklıdır | All rights reserved. &copy; 2024 Ekvator Sağlık Merkezi</p>
             </div>
-            <div className="footer-right"> 
-              <p>
-                +90 532 400 33 69
-              </p>
-              <a href="mailto:ekvatorsaglikmerkezi@gmail.com">ekvatorsaglikmerkezi@gmail.com<br/><br/></a>
+            <div className="footer-right">
+              <p>+90 532 400 33 69</p>
+              <a href="mailto:ekvatorsaglikmerkezi@gmail.com">ekvatorsaglikmerkezi@gmail.com</a>
               <a href="https://www.instagram.com/ekvatorsaglikmerkezi" target="_blank" rel="noopener noreferrer">
                 <img src={instagramLogo} alt="Instagram Logo" className="instagram-logo" />
                 <span>@ekvatorsaglikmerkezi</span>

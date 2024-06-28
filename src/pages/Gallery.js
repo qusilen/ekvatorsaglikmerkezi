@@ -38,19 +38,23 @@ const Gallery = () => {
   };
 
   return (
-    <div className="gallery-container">
-      {photos.map((photo) => (
-        <div className="gallery-item" key={photo.id}>
-          <img
-            src={process.env.PUBLIC_URL + photo.src}
-            alt={photo.alt}
-            onClick={() => openModal(photo)}
-            className="gallery-img"
-          />
-        </div>
-      ))}
-
-      {showModal && <Modal photo={modalPhoto} closeModal={closeModal} />}
+    <div>
+      <h1>Galeri</h1>
+  
+      <div className="gallery-container">
+        {photos.map((photo) => (
+          <div className="gallery-item" key={photo.id}>
+            <img
+              src={process.env.PUBLIC_URL + photo.src}
+              alt={photo.alt}
+              onClick={() => openModal(photo)}
+              className="gallery-img"
+            />
+          </div>
+        ))}
+  
+        {showModal && <Modal photo={modalPhoto} closeModal={closeModal} />}
+      </div>
     </div>
   );
 };

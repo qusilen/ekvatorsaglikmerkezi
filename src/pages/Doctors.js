@@ -1,7 +1,77 @@
 import React from 'react';
 
-function Doctors() {
-  return <h2>Hekimlerimiz</h2>;
-}
+const Doctors = () => {
+  const doctors = [
+    {
+      name: 'Dr. Elif Aydın',
+      specialty: 'Kardiyolog',
+      bio: 'Dr. Elif Aydın, kalp ve damar hastalıkları alanında uzman olup 15 yıldır hizmet vermektedir.',
+      image: 'https://via.placeholder.com/150'
+    },
+    {
+      name: 'Dr. Can Yılmaz',
+      specialty: 'Ortopedist',
+      bio: 'Dr. Can Yılmaz, ortopedi ve travmatoloji uzmanı olarak 10 yıldır hastalarına hizmet sunmaktadır.',
+      image: 'https://via.placeholder.com/150'
+    },
+    {
+      name: 'Dr. Ayşe Kaya',
+      specialty: 'Dermatolog',
+      bio: 'Dr. Ayşe Kaya, dermatoloji alanında uzman olup cilt hastalıkları ve tedavileri konusunda deneyimlidir.',
+      image: 'https://via.placeholder.com/150'
+    }
+  ];
+
+  return (
+    <div style={styles.container}>
+      <h1>Hekimlerimiz</h1>
+      {doctors.map((doctor, index) => (
+        <div key={index} style={styles.doctorContainer}>
+          <div style={styles.imageContainer}>
+            <img
+              src={doctor.image}
+              alt={doctor.name}
+              style={styles.image}
+            />
+          </div>
+          <div style={styles.infoContainer}>
+            <h2>{doctor.name}</h2>
+            <h3>{doctor.specialty}</h3>
+            <p>{doctor.bio}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const styles = {
+  container: {
+    padding: '20px',
+    backgroundColor: '#f0f8ff',
+  },
+  doctorContainer: {
+    display: 'flex',
+    marginBottom: '20px',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    overflow: 'hidden',
+  },
+  imageContainer: {
+    flex: 1,
+    padding: '10px',
+    backgroundColor: '#ffffff',
+    borderRight: '1px solid #ccc',
+  },
+  image: {
+    width: '100%',
+    height: 'auto',
+    borderRadius: '50%',
+  },
+  infoContainer: {
+    flex: 2,
+    padding: '10px 20px',
+  },
+};
 
 export default Doctors;

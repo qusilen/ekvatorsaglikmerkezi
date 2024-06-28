@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-const Blog = () => {
+const BlogPost = () => {
+  const { id } = useParams();
   const blogPosts = [
     {
       id: 1,
@@ -21,26 +22,24 @@ const Blog = () => {
     }
   ];
 
+  const post = blogPosts.find(post => post.id.toString() === id);
+
+  if (!post) {
+    return <div>Blog yazısı bulunamadı.</div>;
+  }
+
   return (
     <div style={styles.container}>
-      <h1>Blog</h1>
-      {blogPosts.map((post, index) => (
-        <div key={index} style={styles.postContainer}>
-          <div style={styles.imageContainer}>
-            <img
-              src={post.image}
-              alt={post.title}
-              style={styles.image}
-            />
-          </div>
-          <div style={styles.textContainer}>
-            <h2>{post.title}</h2>
-            <p style={styles.date}>{post.date}</p>
-            <p style={styles.summary}>{post.summary}</p>
-            <Link to={`/blog/${post.id}`} style={styles.readMore}>Devamını Oku</Link>
-          </div>
-        </div>
-      ))}
+      <h1>{post.title}</h1>
+      <p style={styles.date}>{post.date}</p>
+      <div style={styles.imageContainer}>
+        <img
+          src={post.image}
+          alt={post.title}
+          style={styles.image}
+        />
+      </div>
+      <p style={styles.content}>{post.content}</p>
     </div>
   );
 };
@@ -50,40 +49,21 @@ const styles = {
     padding: '20px',
     backgroundColor: '#f0f8ff',
   },
-  postContainer: {
-    display: 'flex',
-    alignItems: 'flex-start',
-    marginBottom: '20px',
-    backgroundColor: '#ffffff',
-    border: '1px solid #ccc',
-    borderRadius: '8px',
-    boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-    padding: '20px',
-  },
   imageContainer: {
-    marginRight: '20px',
+    marginBottom: '20px',
   },
   image: {
-    width: '400px',
-    height: '400px',
+    width: '25%',
+    height: 'auto',
     borderRadius: '8px',
-  },
-  textContainer: {
-    flex: 1,
   },
   date: {
     color: '#888',
     fontStyle: 'italic',
   },
-  summary: {
-    fontWeight: 'bold',
-  },
-  readMore: {
+  content: {
     marginTop: '10px',
-    color: '#007BFF',
-    textDecoration: 'none',
-    alignSelf: 'flex-end',
   },
 };
 
-export default Blog;
+export default BlogPost;
