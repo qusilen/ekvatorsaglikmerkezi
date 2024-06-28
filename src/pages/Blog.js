@@ -64,8 +64,8 @@ const styles = {
     marginRight: '20px',
   },
   image: {
-    width: '400px',
-    height: '400px',
+    width: '150px',
+    height: '150px',
     borderRadius: '8px',
   },
   textContainer: {
