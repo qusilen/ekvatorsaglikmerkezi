@@ -9,7 +9,7 @@ function Contact() {
         <MyMap />
       </div>
       <div className="contact-info">
-        <p>Telefon: +90 123 456 7890</p>
+        <p>Telefon: +90 532 400 33 69</p>
         <p>Mail: ekvatorsaglikmerkezi@gmail.com</p>
         <p>Adres: İncili Mahallesi 2008 Sokak No: 10/B, Afyon Emirdağ</p>
         {/* Additional contact information or other content */}
