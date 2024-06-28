@@ -53,11 +53,12 @@ nav {
   text-decoration: none;
   padding: 8px 16px;
   transition: background-color 0.3s ease;
+  border-radius: 4px; /* Buton şekline getirmek için köşeleri yuvarlayın */
+  display: inline-block; /* Butonun satırı kapatmaması için */
 }
 
 .nav-links li a:hover {
   background-color: #003d80; /* Daha koyu mavi arka plan rengi */
-  border-radius: 4px;
 }
 
 .menu-icon {
@@ -79,21 +80,6 @@ nav {
   text-align: center;
   position: relative;
   z-index: 0; /* Sayfa içeriğini hamburger menünün altına yerleştir */
-}
-
-.home {
-  text-align: center;
-}
-
-.banner {
-  display: flex;
-  width: 100%;
-  overflow: hidden;
-}
-
-.banner-img {
-  width: 33.33%; /* Üç resmi eşit genişlikte olacak şekilde ayarlayın */
-  height: auto;
 }
 
 @media (max-width: 768px) {
@@ -131,20 +117,12 @@ nav {
     display: block;
     width: 100%;
     transition: background-color 0.3s ease;
+    border-radius: 4px; /* Buton şekline getirmek için köşeleri yuvarlayın */
+    padding: 8px 16px;
   }
 
   .mobile-nav-links li a:hover {
-    background-color: #003d80;
-  }
-
-  .banner {
-    flex-direction: column;
-  }
-
-  .banner-img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+    background-color: #003d80; /* Daha koyu mavi arka plan rengi */
   }
 }
 
@@ -193,72 +171,4 @@ footer {
 .instagram-logo {
   width: 30px; /* Instagram logosu boyutunu ayarlayın */
   margin-right: 5px; /* Logo ile metin arasına boşluk ekleyin */
-}
-
-.gallery-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
-}
-
-.gallery-item {
-  width: calc(20% - 20px); /* İstediğiniz genişlik ayarı */
-  margin: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-  .gallery-item {
-    width: calc(50% - 20px); /* Ekran küçüldüğünde iki sütunlu */
-  }
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-}
-
-.modal {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  max-width: 30%; /* İstenilen maksimum genişlik ayarı */
-  max-height: auto; /* İstenilen maksimum yükseklik ayarı */
-  overflow: auto; /* İçerik taştığında kaydırma çubuğu göster */
-  position: absolute; /* Modalın ekranın ortasında durması için mutlak pozisyon */
-  top: 50%; /* Ekranın yarısına gel */
-  left: 50%; /* Ekranın yarısına gel */
-  transform: translate(-50%, -50%); /* Merkezden hizala */
-}
-
-
-.modal-close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.modal-img {
-  width: 100%;
-  height: auto;
 }

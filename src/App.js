@@ -44,15 +44,15 @@ function App() {
 
   const NavLinks = () => (
     <>
-      <li><Link to="/" onClick={closeMenu}>Anasayfa</Link></li>
-      <li><Link to="/about" onClick={closeMenu}>Hakkımızda</Link></li>
-      <li><Link to="/board" onClick={closeMenu}>Yönetim Kurulu</Link></li>
-      <li><Link to="/mission" onClick={closeMenu}>Misyon & Vizyon</Link></li>
-      <li><Link to="/doctors" onClick={closeMenu}>Hekimlerimiz</Link></li>
-      <li><Link to="/departments" onClick={closeMenu}>Tıbbi Birimler</Link></li>
-      <li><Link to="/blog" onClick={closeMenu}>Blog</Link></li>
-      <li><Link to="/gallery" onClick={closeMenu}>Galeri</Link></li>
-      <li><Link to="/contact" onClick={closeMenu}>İletişim</Link></li>
+      <li><Link to="/" onClick={closeMenu} className="nav-button">Anasayfa</Link></li>
+      <li><Link to="/about" onClick={closeMenu} className="nav-button">Hakkımızda</Link></li>
+      <li><Link to="/board" onClick={closeMenu} className="nav-button">Yönetim Kurulu</Link></li>
+      <li><Link to="/mission" onClick={closeMenu} className="nav-button">Misyon & Vizyon</Link></li>
+      <li><Link to="/doctors" onClick={closeMenu} className="nav-button">Hekimlerimiz</Link></li>
+      <li><Link to="/departments" onClick={closeMenu} className="nav-button">Tıbbi Birimler</Link></li>
+      <li><Link to="/blog" onClick={closeMenu} className="nav-button">Blog</Link></li>
+      <li><Link to="/gallery" onClick={closeMenu} className="nav-button">Galeri</Link></li>
+      <li><Link to="/contact" onClick={closeMenu} className="nav-button">İletişim</Link></li>
     </>
   );
 
